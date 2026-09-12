@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作品集 · 不登校 FUDOKOU</title>
+<meta name="description" content="精选代码项目与作品">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <a class="brand" href="about.html" aria-label="关于 — ABOUT">
+      <span class="brand__mark" aria-hidden="true">不</span>
+      <span class="brand__name">不登校<small>FUDOKOU</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a class="nav__item" href="home.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9.5 21v-6h5v6"/></svg>
+        <span class="nav__text"><span class="nav__zh">首页</span><span class="nav__en">HOME</span></span>
+      </a>
+      <a class="nav__item" href="work.html" aria-current="page">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/></svg>
+        <span class="nav__text"><span class="nav__zh">作品集</span><span class="nav__en">WORKS</span></span>
+      </a>
+      <a class="nav__item" href="notes.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>
+        <span class="nav__text"><span class="nav__zh">笔记</span><span class="nav__en">NOTES</span></span>
+      </a>
+      <a class="nav__item" href="articles.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg>
+        <span class="nav__text"><span class="nav__zh">文章</span><span class="nav__en">ARTICLES</span></span>
+      </a>
+      <a class="nav__item" href="guestbook.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg>
+        <span class="nav__text"><span class="nav__zh">留言墙</span><span class="nav__en">MESSAGE</span></span>
+      </a>
+      <a class="nav__item" href="about.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 21c0-4 3.4-6.4 7.5-6.4S19.5 17 19.5 21"/></svg>
+        <span class="nav__text"><span class="nav__zh">关于</span><span class="nav__en">ABOUT</span></span>
+      </a>
+    </nav>
+    <div class="sidebar__foot">
+      <span class="mono mono--sm" style="color:var(--ink-45)">v1.0</span>
+      <span class="barcode" aria-hidden="true"></span>
+    </div>
+  </aside>
+
+  <div class="main">
+
+    <header class="topbar">
+      <div class="topbar__left">
+        <span class="mono mono--sm" style="letter-spacing:.18em">不登校</span>
+        <span class="topbar__section">/ WORKS</span>
+      </div>
+      <div class="topbar__right">
+        <div class="status-dot"><i aria-hidden="true"></i>ONLINE</div>
+        <button class="icon-btn" aria-label="搜索"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+        <a class="icon-btn" href="mailto:3287390083@qq.com" aria-label="邮箱"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg></a>
+        <button class="icon-btn" aria-label="菜单"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </header>
+
+    <main class="wrap wrap--tight" style="flex:1">
+
+      <div class="page-head">
+        <div class="page-head__row">
+          <div>
+            <h1 class="page-head__title">WORKS <span class="zh">作品集</span></h1>
+            <p class="page-head__desc" id="statLine">加载中…</p>
+          </div>
+          <div class="mono mono--sm" style="color:var(--ink-45);text-align:right">
+            来源：GitHub<br>zhujunkui1-del
+          </div>
+        </div>
+      </div>
+
+      <!-- 筛选 / 排序 -->
+      <div class="toolbar">
+        <div class="filters" id="filters" role="group" aria-label="按语言筛选">
+          <button class="chip chip--solid" data-lang="all">全部</button>
+        </div>
+        <label class="sort">
+          <span class="mono mono--sm" style="color:var(--ink-45)">排序</span>
+          <select id="sortSel" aria-label="排序方式">
+            <option value="updated-desc">最新更新</option>
+            <option value="updated-asc">最旧更新</option>
+            <option value="name-asc">名称 A→Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="works-grid" id="grid"></div>
+
+      <p class="mono mono--sm" id="emptyHint" style="display:none;color:var(--ink-45);padding-bottom:var(--sp-8)">
+        该筛选下没有项目。
+      </p>
+
+    </main>
+
+    <footer class="footer">
+      <span>© 2025 不登校 · FUDOKOU</span>
+      <span class="footer__links">
+        <a href="https://space.bilibili.com/131583045" target="_blank" rel="noopener">B站</a>
+        <a href="https://github.com/zhujunkui1-del/" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:3287390083@qq.com">邮箱</a>
+      </span>
+    </footer>
+
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  var P = window.PROTO;
+  var all = (window.SITE.projects || []).slice();
+
+  var statLine = document.getElementById('statLine');
+  var grid     = document.getElementById('grid');
+  var filters  = document.getElementById('filters');
+  var sortSel  = document.getElementById('sortSel');
+  var hint     = document.getElementById('emptyHint');
+
+  var withCover = all.filter(function (p) { return p.coverSource === 'readme'; }).length;
+  var ready     = all.filter(function (p) { return !p.isEmpty; }).length;
+  statLine.textContent = '共 ' + all.length + ' 个项目 · ' + withCover + ' 个有封面 · ' + ready + ' 个有正文';
+
+  /* ── 语言筛选芯片 ── */
+  var langs = [];
+  all.forEach(function (p) {
+    (p.languages || []).forEach(function (l) { if (langs.indexOf(l.name) < 0) langs.push(l.name); });
+  });
+  /* 只保留占比 ≥ 3% 的语言，避免一堆碎芯片 */
+  var topLangs = [];
+  langs.forEach(function (name) {
+    var maxPct = 0;
+    all.forEach(function (p) {
+      (p.languages || []).forEach(function (l) { if (l.name === name) maxPct = Math.max(maxPct, l.pct); });
+    });
+    if (maxPct >= 3) topLangs.push(name);
+  });
+
+  topLangs.forEach(function (name) {
+    var b = document.createElement('button');
+    b.className = 'chip';
+    b.dataset.lang = name;
+    b.textContent = name;
+    filters.appendChild(b);
+  });
+
+  var activeLang = 'all';
+  filters.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-lang]');
+    if (!btn) return;
+    activeLang = btn.dataset.lang;
+    Array.prototype.forEach.call(filters.children, function (c) {
+      c.className = (c === btn) ? 'chip chip--solid' : 'chip';
+    });
+    render();
+  });
+
+  sortSel.addEventListener('change', render);
+
+  function render() {
+    var list = all.filter(function (p) {
+      if (activeLang === 'all') return true;
+      return (p.languages || []).some(function (l) { return l.name === activeLang; });
+    });
+
+    var mode = sortSel.value;
+    list.sort(function (a, b) {
+      if (mode === 'updated-desc') return (b.updated || '').localeCompare(a.updated || '');
+      if (mode === 'updated-asc')  return (a.updated || '').localeCompare(b.updated || '');
+      return a.name.localeCompare(b.name);
+    });
+
+    hint.style.display = list.length ? 'none' : 'block';
+    grid.innerHTML = list.map(function (p, i) {
+      var html = P.cardHtml(p, { blockIndex: i });
+      /* 作品列表页的卡多一行「语言分布 + 更新时间」 */
+      return html.replace(
+        /<div class="card__meta">([\s\S]*?)<\/div>/,
+        '<div class="card__meta"><span class="mono mono--sm" style="color:var(--ink-45)">' +
+        (p.updated || '—') + '</span><span class="arrow" aria-hidden="true">→</span></div>'
+      );
+    }).join('');
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

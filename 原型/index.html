@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不登校 · FUDOKOU</title>
+<meta name="description" content="BUILDING USEFUL THINGS WITH CODE — 个人作品集与笔记">
+<meta property="og:title" content="不登校 · FUDOKOU">
+<meta property="og:description" content="BUILDING USEFUL THINGS WITH CODE">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ══ 左竖栏（六项导航） ══════════════════════════════════════════ -->
+  <aside class="sidebar">
+    <a class="brand" href="about.html" aria-label="关于 — ABOUT">
+      <span class="brand__mark" aria-hidden="true">不</span>
+      <span class="brand__name">不登校<small>FUDOKOU</small></span>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      <a class="nav__item" href="home.html" aria-current="page">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9.5 21v-6h5v6"/></svg>
+        <span class="nav__text"><span class="nav__zh">首页</span><span class="nav__en">HOME</span></span>
+      </a>
+      <a class="nav__item" href="work.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/></svg>
+        <span class="nav__text"><span class="nav__zh">作品集</span><span class="nav__en">WORKS</span></span>
+      </a>
+      <a class="nav__item" href="notes.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>
+        <span class="nav__text"><span class="nav__zh">笔记</span><span class="nav__en">NOTES</span></span>
+      </a>
+      <a class="nav__item" href="articles.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg>
+        <span class="nav__text"><span class="nav__zh">文章</span><span class="nav__en">ARTICLES</span></span>
+      </a>
+      <a class="nav__item" href="guestbook.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg>
+        <span class="nav__text"><span class="nav__zh">留言墙</span><span class="nav__en">MESSAGE</span></span>
+      </a>
+      <a class="nav__item" href="about.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 21c0-4 3.4-6.4 7.5-6.4S19.5 17 19.5 21"/></svg>
+        <span class="nav__text"><span class="nav__zh">关于</span><span class="nav__en">ABOUT</span></span>
+      </a>
+    </nav>
+
+    <div class="sidebar__foot">
+      <span class="mono mono--sm" style="color:var(--ink-45)">v1.0</span>
+      <span class="barcode" aria-hidden="true"></span>
+    </div>
+  </aside>
+
+  <!-- ══ 主区 ════════════════════════════════════════════════════════ -->
+  <div class="main">
+
+    <!-- 顶栏 -->
+    <header class="topbar">
+      <div class="topbar__left">
+        <span class="mono mono--sm" style="letter-spacing:.18em">CREATE</span>
+        <span class="topbar__section">/ START</span>
+      </div>
+      <div class="topbar__right">
+        <div class="status-dot"><i aria-hidden="true"></i>ONLINE</div>
+        <button class="icon-btn" aria-label="搜索">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="偏好设置">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+        </button>
+        <a class="icon-btn" href="mailto:3287390083@qq.com" aria-label="邮箱">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>
+        </a>
+        <button class="icon-btn" aria-label="菜单">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 启动页主体 -->
+    <main class="wrap" style="flex:1;display:flex;flex-direction:column">
+      <section class="splash" id="splash">
+
+        <!-- 斜向黄带 -->
+        <div class="splash__band" aria-hidden="true"></div>
+
+        <!-- 左：巨字 + 标语 + 按钮 -->
+        <div class="splash__left">
+          <h1 class="splash__title display--zh">
+            <span class="line"><span class="reveal-line">不登校</span></span>
+            <span class="line"><span class="reveal-line">FUDOKOU</span></span>
+          </h1>
+
+          <p class="splash__sub">用代码构建真正有用的东西。</p>
+          <p class="splash__tags">BUILDING USEFUL THINGS WITH CODE</p>
+
+          <div class="splash__cta">
+            <a class="btn btn--accent" href="home.html" style="padding:14px 26px">
+              进入网站 <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="splash__coord mono mono--sm">
+            VISUAL EXPERIENCE<br>
+            —<br>
+            2025
+          </div>
+        </div>
+
+        <!-- 右：主视觉 -->
+        <div class="splash__right">
+          <div class="splash__art">
+            <img src="media/hero.png" alt="厚涂插画主视觉：戴耳机的创作者、酸性黄圆形与灰色建筑拼贴" width="1536" height="1024">
+
+            <!-- 右下角磁贴（原型占位；播放器第二步再接） -->
+            <div class="splash__mini">
+              <div class="bar"><i></i></div>
+              <span>MUSIC OFF</span>
+            </div>
+
+            <!-- 套准标记 -->
+            <span class="regmark regmark--tl" aria-hidden="true"></span>
+            <span class="regmark regmark--bl" aria-hidden="true"></span>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <span>© 2025 不登校 · FUDOKOU</span>
+      <span class="footer__links">
+        <a href="https://github.com/zhujunkui1-del/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://space.bilibili.com/131583045" target="_blank" rel="noopener">Bilibili</a>
+        <a href="mailto:3287390083@qq.com">邮箱</a>
+      </span>
+    </footer>
+
+  </div><!-- /.main -->
+</div><!-- /.app -->
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  /* 启动页揭示序列（09-动效与交互规格.md §4.1，总计约 1200ms）
+     0ms     巨字逐行上推
+     400ms   黄带从左扫过（CSS 里已设 delay）
+     800ms   副标题淡入
+     1000ms  导航 / CTA 出现
+  */
+  (function () {
+    var splash = document.getElementById('splash');
+    // 英文行逐字包裹，中文行整行（避免汉字字距抖动）
+    var lines = splash.querySelectorAll('.splash__title .reveal-line');
+    lines.forEach(function (el) {
+      var text = el.textContent;
+      var isCJK = /[\u4e00-\u9fa5]/.test(text);
+      if (isCJK) return;                     // 中文保持整行
+      el.textContent = '';
+      Array.prototype.forEach.call(text, function (ch, i) {
+        var span = document.createElement('span');
+        span.className = 'ch';
+        span.style.setProperty('--i', i);
+        span.textContent = ch === ' ' ? '\u00a0' : ch;
+        el.appendChild(span);
+      });
+    });
+
+    // 入场
+    requestAnimationFrame(function () {
+      setTimeout(function () { splash.classList.add('is-in'); }, 60);
+    });
+  })();
+</script>
+</body>
+</html>

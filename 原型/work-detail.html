@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作品详情 · 不登校 FUDOKOU</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <a class="brand" href="about.html" aria-label="关于 — ABOUT">
+      <span class="brand__mark" aria-hidden="true">不</span>
+      <span class="brand__name">不登校<small>FUDOKOU</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a class="nav__item" href="home.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9.5 21v-6h5v6"/></svg>
+        <span class="nav__text"><span class="nav__zh">首页</span><span class="nav__en">HOME</span></span>
+      </a>
+      <a class="nav__item" href="work.html" aria-current="page">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/></svg>
+        <span class="nav__text"><span class="nav__zh">作品集</span><span class="nav__en">WORKS</span></span>
+      </a>
+      <a class="nav__item" href="notes.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>
+        <span class="nav__text"><span class="nav__zh">笔记</span><span class="nav__en">NOTES</span></span>
+      </a>
+      <a class="nav__item" href="articles.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg>
+        <span class="nav__text"><span class="nav__zh">文章</span><span class="nav__en">ARTICLES</span></span>
+      </a>
+      <a class="nav__item" href="guestbook.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/></svg>
+        <span class="nav__text"><span class="nav__zh">留言墙</span><span class="nav__en">MESSAGE</span></span>
+      </a>
+      <a class="nav__item" href="about.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 21c0-4 3.4-6.4 7.5-6.4S19.5 17 19.5 21"/></svg>
+        <span class="nav__text"><span class="nav__zh">关于</span><span class="nav__en">ABOUT</span></span>
+      </a>
+    </nav>
+    <div class="sidebar__foot">
+      <span class="mono mono--sm" style="color:var(--ink-45)">v1.0</span>
+      <span class="barcode" aria-hidden="true"></span>
+    </div>
+  </aside>
+
+  <div class="main">
+
+    <header class="topbar">
+      <div class="topbar__left">
+        <a class="mono mono--sm" style="letter-spacing:.18em" href="work.html">WORKS</a>
+        <span class="topbar__section" id="crumb">/ —</span>
+      </div>
+      <div class="topbar__right">
+        <div class="status-dot"><i aria-hidden="true"></i>ONLINE</div>
+        <a class="icon-btn" href="mailto:3287390083@qq.com" aria-label="邮箱"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg></a>
+        <button class="icon-btn" aria-label="菜单"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </header>
+
+    <main class="wrap wrap--tight" style="flex:1">
+      <div class="detail" id="detail"></div>
+    </main>
+
+    <footer class="footer">
+      <span>© 2025 不登校 · FUDOKOU</span>
+      <span class="footer__links">
+        <a href="https://space.bilibili.com/131583045" target="_blank" rel="noopener">B站</a>
+        <a href="https://github.com/zhujunkui1-del/" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:3287390083@qq.com">邮箱</a>
+      </span>
+    </footer>
+
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  var P = window.PROTO;
+  var all = (window.SITE.projects || []).slice();
+
+  var slug = new URLSearchParams(location.search).get('slug');
+  /* 未指定 slug 时默认展示第一个（原型方便预览） */
+  var idx = all.findIndex(function (p) { return p.slug === slug; });
+  if (idx < 0) idx = 0;
+  var p = all[idx];
+
+  if (!p) {
+    document.getElementById('detail').innerHTML =
+      '<div class="empty"><span class="empty__label">没有找到项目</span>' +
+      '<h2 class="empty__title">NOT FOUND</h2>' +
+      '<a class="btn" href="work.html">返回作品集</a></div>';
+    return;
+  }
+
+  document.getElementById('crumb').textContent = '/ ' + p.name;
+  document.title = p.name + ' · 不登校 FUDOKOU';
+
+  var prev = all[(idx - 1 + all.length) % all.length];
+  var next = all[(idx + 1) % all.length];
+
+  /* ── 元数据表 ── */
+  var metaRows = [
+    ['TYPE',     p.language || 'PROJECT'],
+    ['YEAR',     (p.created || '').slice(0, 4) || '—'],
+    ['UPDATED',  p.updated || '—'],
+    ['STATUS',   p.isEmpty ? 'IN PROGRESS' : 'ACTIVE'],
+    ['SOURCE',   p.coverSource === 'readme' ? 'README 自动' : '默认图'],
+  ];
+
+  var metaHtml = '<dl class="detail__meta">' +
+    metaRows.map(function (r) {
+      return '<div><dt>' + r[0] + '</dt><dd>' + P.esc(r[1]) + '</dd></div>';
+    }).join('') +
+    '<div><dt>GITHUB</dt><dd><a href="' + P.esc(p.url) + '" target="_blank" rel="noopener">' +
+      P.esc(p.repo) + ' ↗</a></dd></div>' +
+    '</dl>';
+
+  /* ── 语言分布 ── */
+  var langHtml = (p.languages || []).length
+    ? '<div style="margin-top:14px">' +
+      '<div class="mono mono--sm" style="color:var(--ink-45);margin-bottom:6px">LANGUAGES</div>' +
+      P.langBarHtml(p.languages) +
+      '<div class="mono mono--sm" style="color:var(--ink-45);margin-top:7px;display:flex;flex-wrap:wrap;gap:10px">' +
+      p.languages.map(function (l) {
+        return '<span><i style="display:inline-block;width:7px;height:7px;background:' +
+          P.langColor(l.name) + ';margin-right:5px"></i>' + P.esc(l.name) + ' ' + l.pct + '%</span>';
+      }).join('') + '</div></div>'
+    : '';
+
+  /* ── 右侧正文 ── */
+  var bodyHtml;
+  if (p.isEmpty) {
+    /* 空状态：不编造内容，用排版撑场（08-施工说明书 N15） */
+    bodyHtml =
+      '<div class="empty">' +
+        '<span class="empty__label">01 PROJECT · README 为空</span>' +
+        '<h2 class="empty__title">项目进行中<br>IN PROGRESS</h2>' +
+        '<p class="empty__desc">' + (P.esc(p.description) || '该项目仍在开发中，更多内容与细节将陆续补充。') + '</p>' +
+        '<dl class="empty__meta">' +
+          '<div><dt>TYPE</dt><dd>' + P.esc((p.languages[0] && p.languages[0].name) || '—') + '</dd></div>' +
+          '<div><dt>STATUS</dt><dd>IN PROGRESS</dd></div>' +
+          '<div><dt>SOURCE</dt><dd><a href="' + P.esc(p.url) + '" target="_blank" rel="noopener">GITHUB ↗</a></dd></div>' +
+        '</dl>' +
+      '</div>';
+  } else {
+    /* 去重：README 首图常被同时用作封面，避免同一张图出现两次。
+       注意：两条路径可能一个是百分号编码、一个是原始 UTF-8
+       （GitHub 图片接口返回编码后的，markdown 正文是原文），
+       必须先 decodeURIComponent 再比较。 */
+    var norm = function (u) {
+      if (!u) return '';
+      try { return decodeURIComponent(u); } catch (e) { return u; }
+    };
+    var inlineImgs = p.readmeHTML.match(/<img[^>]+src="([^"]+)"/g) || [];
+    var firstInline = inlineImgs.length
+      ? (inlineImgs[0].match(/src="([^"]+)"/) || [])[1]
+      : null;
+    var coverIsInline = firstInline && norm(firstInline) === norm(p.cover);
+
+    bodyHtml =
+      /* 仅当封面不是 README 内联图时才单独展示大图 */
+      (!coverIsInline
+        ? '<figure class="detail__figure"><img src="' + P.esc(P.coverOf(p)) + '" alt="' + P.esc(p.name) + '"></figure>'
+        : '') +
+      /* 图组缩略图：排除已被封面用过的那张 */
+      (p.images.length > 1
+        ? '<div class="detail__thumbs">' + p.images.slice(1, 5).map(function (src) {
+            return '<a href="' + P.esc(src) + '" target="_blank" rel="noopener"><img src="' + P.esc(src) + '" alt="" loading="lazy"></a>';
+          }).join('') + '</div>'
+        : '') +
+      '<article class="md"' + (coverIsInline ? ' style="margin-top:0"' : ' style="margin-top:var(--sp-6)"') + '>' +
+        '<div class="mono mono--sm" style="color:var(--ink-45);margin-bottom:10px">README · ' +
+          p.readmeChars + ' 字符 · 来自 GitHub</div>' +
+        p.readmeHTML +
+      '</article>';
+  }
+
+  document.getElementById('detail').innerHTML =
+    /* 左栏 */
+    '<aside class="detail__side">' +
+      '<span class="detail__label">01 PROJECT</span>' +
+      '<h1 class="detail__title">' + P.esc(p.name) + '</h1>' +
+      '<p class="detail__zh">' + P.esc(p.title) + '</p>' +
+      metaHtml + langHtml +
+      '<div class="detail__nav">' +
+        '<a href="work-detail.html?slug=' + encodeURIComponent(prev.slug) + '">← 上一个</a>' +
+        '<a href="work-detail.html?slug=' + encodeURIComponent(next.slug) + '">下一个 →</a>' +
+      '</div>' +
+      '<div style="margin-top:var(--sp-3)"><a class="btn" href="work.html">← 返回作品集</a></div>' +
+    '</aside>' +
+    /* 右栏 */
+    '<div>' + bodyHtml + '</div>';
+})();
+</script>
+</body>
+</html>
